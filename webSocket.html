@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>WS</h1>
+    <div id="chatroom" style="width: 400px;height: 300px;overflow: auto;border: 1px solid blue">
+
+    </div>
+    <input type="text" name="sayinput" id="sayinput" value="">
+    <input type="button" name="send" id="sendbutton" value="发送">
+    <script src="WsClient.js" charset="utf-8"></script>
+    <script>
+        function send() {
+            ws.send(sayinput.value)
+            sayinput.value = '';
+        }
+        document.onkeyup = (event) => {
+            if(event.keyCode == 13){
+                send()
+            }
+        }
+        sendbutton.onclick = () => {
+            send()
+        }
+    </script>
+</body>
+</html>
